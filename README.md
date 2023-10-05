@@ -1,4 +1,4 @@
-# 项目名称
+## 项目名称
 
 SpeechRecognition_kt
 
@@ -11,6 +11,7 @@ SpeechRecognition_kt
 实现方法:
 
 继承Android原生SpeechRecognizer和RecognitionListener
+
 使用最新Api检查和申请麦克风权限，判断网络连接状态
 
 功能:

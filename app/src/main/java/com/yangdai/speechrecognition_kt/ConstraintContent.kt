@@ -42,7 +42,8 @@ fun ConstraintContent(
         val result = remember {
             mutableStateOf("无内容")
         }
-        val myRecognitionListener = MyRecognitionListener(result)
+        viewModel.myRecognitionListener.setResult(result)
+
 
         Text(
             text = result.value,
@@ -76,10 +77,6 @@ fun ConstraintContent(
                                 recognitionIntent.putExtra(
                                     RecognizerIntent.EXTRA_LANGUAGE,
                                     Locale.CHINA
-                                )
-
-                                viewModel.mySpeechRecognizer.setRecognitionListener(
-                                    myRecognitionListener
                                 )
                                 viewModel.mySpeechRecognizer.startListening(recognitionIntent)
                             }

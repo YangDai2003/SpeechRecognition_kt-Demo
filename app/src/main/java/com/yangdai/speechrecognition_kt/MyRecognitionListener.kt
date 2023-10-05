@@ -5,7 +5,12 @@ import android.speech.RecognitionListener
 import android.util.Log
 import androidx.compose.runtime.MutableState
 
-class MyRecognitionListener(private val result: MutableState<String>) : RecognitionListener {
+class MyRecognitionListener : RecognitionListener {
+
+    private lateinit var result: MutableState<String>
+    fun setResult(value: MutableState<String>) {
+        result = value
+    }
 
     override fun onReadyForSpeech(params: Bundle?) {}
 
@@ -24,15 +29,18 @@ class MyRecognitionListener(private val result: MutableState<String>) : Recognit
     }
 
     override fun onError(error: Int) {
+        Log.i("onError", error.toString())
     }
 
     override fun onResults(results: Bundle?) {
-        val resultArray = results?.getStringArrayList(android.speech.SpeechRecognizer.RESULTS_RECOGNITION)
+        val resultArray =
+            results?.getStringArrayList(android.speech.SpeechRecognizer.RESULTS_RECOGNITION)
         result.value = resultArray?.get(0) ?: ""
     }
 
     override fun onPartialResults(partialResults: Bundle?) {
-        val resultArray = partialResults?.getStringArrayList(android.speech.SpeechRecognizer.RESULTS_RECOGNITION)
+        val resultArray =
+            partialResults?.getStringArrayList(android.speech.SpeechRecognizer.RESULTS_RECOGNITION)
         result.value = resultArray?.get(0) ?: ""
     }
 

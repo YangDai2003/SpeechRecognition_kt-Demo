@@ -8,5 +8,11 @@ SpeechRecognition_kt
 
 ## 功能特性
 
-点击Button调用麦克风，将语音转为文字显示在Text中。
+实现方法:
 
+继承Android原生SpeechRecognizer和RecognitionListener
+使用最新Api检查和申请麦克风权限，判断网络连接状态
+
+功能:
+
+点击Button调用麦克风，将语音转为文字显示在Text中。

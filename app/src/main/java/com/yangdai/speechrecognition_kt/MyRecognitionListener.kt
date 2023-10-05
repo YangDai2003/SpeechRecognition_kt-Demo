@@ -35,13 +35,13 @@ class MyRecognitionListener : RecognitionListener {
     override fun onResults(results: Bundle?) {
         val resultArray =
             results?.getStringArrayList(android.speech.SpeechRecognizer.RESULTS_RECOGNITION)
-        result.value = resultArray?.get(0) ?: ""
+        result.value = resultArray?.get(0) ?: return
     }
 
     override fun onPartialResults(partialResults: Bundle?) {
         val resultArray =
             partialResults?.getStringArrayList(android.speech.SpeechRecognizer.RESULTS_RECOGNITION)
-        result.value = resultArray?.get(0) ?: ""
+        result.value = resultArray?.get(0) ?: return
     }
 
     override fun onEvent(eventType: Int, params: Bundle?) {

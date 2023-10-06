@@ -7,8 +7,9 @@ import android.speech.RecognizerIntent
 import android.widget.Toast
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.material3.Button
+import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -60,7 +61,7 @@ fun MainLayout(
             textAlign = TextAlign.Center
         )
 
-        Button(
+        ElevatedButton(
             onClick = {
                 multiplePermissionState.launchMultiplePermissionRequest()
 
@@ -102,8 +103,9 @@ fun MainLayout(
             Icon(
                 painter = painterResource(id = R.drawable.baseline_keyboard_voice_24),
                 contentDescription = "",
+                modifier = Modifier.size(18.dp)
             )
-            Spacer(modifier = Modifier.width(10.dp))
+            Spacer(modifier = Modifier.width(8.dp))
             Text(text = "语音识别")
         }
     }
